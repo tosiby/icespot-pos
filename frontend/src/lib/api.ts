@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'const API = "https://ice-spot-backend.onrender.com/api"';
 
 function getToken() {
   if (typeof window === 'undefined') return null;
