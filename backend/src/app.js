@@ -6,6 +6,9 @@ import itemRoutes from './routes/items.js';
 import saleRoutes from './routes/sales.js';
 import staffRoutes from './routes/staff.js';
 import dashboardRoutes from './routes/dashboard.js';
+import pkg from '@prisma/client';
+const { PrismaClient } = pkg;
+const prisma = new PrismaClient();
 
 const app = express();
 
@@ -30,3 +33,14 @@ app.use((err, _req, res, _next) => {
 });
 
 export default app;
+// 🔥 Connect to Supabase when server starts
+async function initDB() {
+  try {
+    await prisma.$connect();
+    console.log("✅ Connected to Supabase database");
+  } catch (err) {
+    console.error("❌ Database connection failed:", err);
+  }
+}
+
+initDB();
