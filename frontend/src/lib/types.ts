@@ -1,5 +1,4 @@
 export type Role = 'ADMIN' | 'STAFF';
-export type Category = 'Packet' | 'Liter';
 export type PaymentMode = 'CASH' | 'UPI';
 
 export interface User {

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
-import { Category, Item, Sale } from '@/lib/types';
+import { Category, Item, Sale } from '../../lib/types';
 import { useCartStore } from '@/store/cart';
 
 const tabs: Category[] = [
