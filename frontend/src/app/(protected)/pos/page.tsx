@@ -18,7 +18,7 @@ const tabs: Category[] = [
 
 export default function PosPage() {
   const [items, setItems] = useState<Item[]>([]);
-  const [activeTab, setActiveTab] = useState<Category>('CONE');
+  const [activeTab, setActiveTab] = useState<Category>('REGULAR');
   const [paymentMode, setPaymentMode] = useState<'CASH' | 'UPI'>('CASH');
   const [showCheckout, setShowCheckout] = useState(false);
   const [saving, setSaving] = useState(false);
