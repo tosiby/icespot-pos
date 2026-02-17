@@ -39,7 +39,7 @@ export default function ProtectedLayout({ children }: { children: React.ReactNod
         </div>
         <div className="flex items-center gap-2">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className={clsx('px-3 py-2 rounded-lg text-sm font-semibold', pathname === l.href ? 'bg-brandPurple text-white' : 'bg-slate-100')}>
+            <Link key={l.href} href={l.href as any} className={clsx('px-3 py-2 rounded-lg text-sm font-semibold', pathname === l.href ? 'bg-brandPurple text-white' : 'bg-slate-100')}>
               {l.label}
             </Link>
           ))}
