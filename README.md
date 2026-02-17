@@ -27,7 +27,7 @@ Implemented models in `backend/prisma/schema.prisma`:
 
 Enums:
 - `Role` = ADMIN / STAFF
-- `Category` = CONE / CUP / SUNDAE
+- `Category` =  REGULAR / PREMIUM / DELUXE / SPECIAL / SIGNATURE / FAMILY_PACK
 - `PaymentMode` = CASH / UPI
 
 ## Local Setup
