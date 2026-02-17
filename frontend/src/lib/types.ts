@@ -9,6 +9,14 @@ export interface User {
   role: Role;
 }
 
+export type Category =
+  | 'REGULAR'
+  | 'PREMIUM'
+  | 'DELUXE'
+  | 'SPECIAL'
+  | 'SIGNATURE'
+  | 'FAMILY_PACK';
+
 export interface Item {
   id: number;
   name: string;
