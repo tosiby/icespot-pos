@@ -1,0 +1,50 @@
+﻿generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("STAFF")
+  createdAt    DateTime @default(now())
+  sales        Sale[]
+}
+
+model Item {
+  id            Int        @id @default(autoincrement())
+  name          String
+  category      String
+  price         Float
+  stock         Int
+  lowStockLevel Int
+  isActive      Boolean    @default(true)
+  saleItems     SaleItem[]
+}
+
+model Sale {
+  id          Int         @id @default(autoincrement())
+  billNumber  String      @unique
+  totalAmount Float
+  paymentMode String
+  staffId     Int
+  createdAt   DateTime    @default(now())
+  staff       User        @relation(fields: [staffId], references: [id])
+  items       SaleItem[]
+}
+
+model SaleItem {
+  id       Int    @id @default(autoincrement())
+  saleId   Int
+  itemId   Int
+  quantity Int
+  price    Float
+  sale     Sale   @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  item     Item   @relation(fields: [itemId], references: [id])
+}
