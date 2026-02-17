@@ -6,7 +6,15 @@ import { api } from '@/lib/api';
 import { Category, Item, Sale } from '@/lib/types';
 import { useCartStore } from '@/store/cart';
 
-const tabs: Category[] = ['CONE', 'CUP', 'SUNDAE'];
+const tabs: Category[] = [
+  'REGULAR',
+  'PREMIUM',
+  'DELUXE',
+  'SPECIAL',
+  'SIGNATURE',
+  'FAMILY_PACK',
+];
+
 
 export default function PosPage() {
   const [items, setItems] = useState<Item[]>([]);
