@@ -6,19 +6,10 @@ import { api } from '@/lib/api';
 import { Category, Item, Sale } from '../../lib/types';
 import { useCartStore } from '@/store/cart';
 
-const tabs: Category[] = [
-  'REGULAR',
-  'PREMIUM',
-  'DELUXE',
-  'SPECIAL',
-  'SIGNATURE',
-  'FAMILY_PACK',
-];
 
 
 export default function PosPage() {
   const [items, setItems] = useState<Item[]>([]);
-  const [activeTab, setActiveTab] = useState<Category>('REGULAR');
   const [paymentMode, setPaymentMode] = useState<'CASH' | 'UPI'>('CASH');
   const [showCheckout, setShowCheckout] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -30,7 +21,7 @@ export default function PosPage() {
     api<Item[]>('/items').then(setItems).catch(console.error);
   }, []);
 
-  const filtered = useMemo(() => items.filter((i) => i.category === activeTab && i.isActive), [items, activeTab]);
+  const filtered = useMemo(() => items.filter((i) => i.isActive), [items]);
 
   async function checkout() {
     try {
@@ -53,13 +44,7 @@ export default function PosPage() {
   return (
     <div className="grid lg:grid-cols-[1fr_360px] gap-4">
       <section className="space-y-4">
-        <div className="flex gap-2">
-          {tabs.map((tab) => (
-            <button key={tab} onClick={() => setActiveTab(tab)} className={`px-6 py-3 text-lg font-bold rounded-xl ${activeTab === tab ? 'bg-brandOrange text-white' : 'bg-white'}`}>
-              {tab}
-            </button>
-          ))}
-        </div>
+       
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
           {filtered.map((item) => (
             <button key={item.id} onClick={() => addItem(item)} className="pos-card p-5 text-left min-h-28 hover:border-brandPurple">
