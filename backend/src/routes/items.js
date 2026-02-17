@@ -7,7 +7,7 @@ const router = Router();
 
 const itemSchema = z.object({
   name: z.string().min(1),
-  category: z.enum(['CONE', 'CUP', 'SUNDAE']),
+  category: z.enum(['REGULAR', 'PREMIUM', 'DELUXE','SPECIAL','SIGNATURE','FAMILY_PACK']),
   price: z.number().positive(),
   stock: z.number().int().min(0),
   lowStockLevel: z.number().int().min(0),
