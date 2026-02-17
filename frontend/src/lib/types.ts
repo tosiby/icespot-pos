@@ -1,5 +1,5 @@
 export type Role = 'ADMIN' | 'STAFF';
-export type Category = 'CONE' | 'CUP' | 'SUNDAE';
+export type Category = 'Packet' | 'Liter';
 export type PaymentMode = 'CASH' | 'UPI';
 
 export interface User {
