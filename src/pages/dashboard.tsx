@@ -58,7 +58,8 @@ const printReceipt = (mode:string) => {
   const date = now.toLocaleString()
   const txn = "TXN" + Date.now()
 
-  const logo = "/logo.png"
+  const logo = window.location.origin + "/logo.png"
+
 
   const html = `
   <html>
