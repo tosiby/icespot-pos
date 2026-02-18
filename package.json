@@ -1,30 +1,27 @@
 {
-  "name": "billing-main",
-  "version": "1.0.0",
+  "name": "icespot-pos",
   "private": true,
-"scripts": {
-  "dev": "next dev",
-  "build": "prisma generate && next build",
-  "start": "next start"
-},
-
-
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start"
+  },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.4.0",
     "@prisma/client": "^7.4.0",
-    "bcrypt": "^6.0.0",
-    "jspdf": "^4.1.0",
-    "next": "^16.1.6",
-    "pg": "^8.18.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "recharts": "^3.7.0"
+    "bcrypt": "^5.1.0",
+    "jspdf": "^2.5.1",
+    "next": "16.1.6",
+    "pg": "^8.11.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "recharts": "^2.8.0"
   },
   "devDependencies": {
-    "@types/bcrypt": "^6.0.0",
-    "@types/node": "25.2.3",
-    "@types/react": "19.2.14",
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.66",
     "prisma": "^7.4.0",
-    "typescript": "5.9.3"
+    "typescript": "^5.4.2"
   }
 }
