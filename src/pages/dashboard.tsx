@@ -136,8 +136,32 @@ const printReceipt = (mode:string) => {
     setCart([])
   }
 
-  return (
-    <div style={{ display:"flex", height:"100vh" }}>
+ return (
+  <div style={{ height:"100vh", display:"flex", flexDirection:"column" }}>
+
+    {/* 🔝 POS HEADER */}
+    <div style={{
+      display:"flex",
+      alignItems:"center",
+      gap:15,
+      padding:"12px 20px",
+      background:"#111",
+      color:"#fff"
+    }}>
+      <img src="/logo.png" width={50} />
+      <div>
+        <div style={{fontSize:22, fontWeight:"bold"}}>
+          ICE SPOT
+        </div>
+        <div style={{fontSize:13, opacity:0.8}}>
+          Kurishumood, Changanacherry
+        </div>
+      </div>
+    </div>
+
+    {/* MAIN POS AREA */}
+    <div style={{ display:"flex", flex:1 }}>
+
       
       {/* MENU */}
       <div style={{ flex:1, padding:20 }}>
@@ -198,5 +222,6 @@ const printReceipt = (mode:string) => {
         </button>
       </div>
     </div>
+</div>
   )
 }
