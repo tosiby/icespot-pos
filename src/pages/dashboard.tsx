@@ -51,40 +51,31 @@ const logo = "/logo.png"
   const categories = [...new Set(items.map(i=>i.category))]
   const filtered = items.filter(i=> i.category===category && i.isActive)
 
-  // RECEIPT 🧾
- 
-
-// RECEIPT 🧾 (UPDATED FINAL)
 const printReceipt = (mode:string) => {
+  console.log("🔥 NEW PRINT RECEIPT ACTIVE") // DEBUG PROOF
+
   const now = new Date()
   const date = now.toLocaleString()
   const txn = "TXN" + Date.now()
 
-  // 👉 put your logo inside /public/logo.png later
   const logo = "/logo.png"
 
   const html = `
   <html>
   <head>
-    <title>Receipt</title>
     <style>
-      @page { margin:0 }        /* removes about:blank footer */
+      @page { margin:0 }
       body{
         font-family: monospace;
         width:260px;
         padding:10px;
       }
-      hr{ border-top:1px dashed #000; margin:6px 0 }
-      .row{
-        display:flex;
-        justify-content:space-between;
-        font-size:14px;
-      }
+      hr{ border-top:1px dashed #000 }
+      .row{ display:flex; justify-content:space-between }
     </style>
   </head>
 
   <body>
-
     <center>
       <img src="${logo}" width="70"/><br/>
       <b>ICE SPOT</b><br/>
@@ -105,14 +96,9 @@ const printReceipt = (mode:string) => {
     `).join("")}
 
     <hr/>
-    <h3>Total: ₹${total}</h3>
+    <b>Total: ₹${total}</b>
     <hr/>
-
-    <center>
-      Thank You ❤️<br/>
-      Visit Again
-    </center>
-
+    <center>Thank You ❤️</center>
   </body>
   </html>
   `
@@ -127,7 +113,6 @@ const printReceipt = (mode:string) => {
     win!.close()
   },500)
 }
-
 
   // 💰 PAYMENT (FINAL FIX ADDED)
   const pay = async (mode:string) => {
