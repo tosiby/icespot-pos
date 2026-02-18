@@ -2,11 +2,12 @@
   "name": "billing-main",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
+"scripts": {
   "dev": "next dev",
   "build": "prisma generate && next build",
   "start": "next start"
-}
+},
+
 
   "dependencies": {
     "@prisma/adapter-pg": "^7.4.0",
