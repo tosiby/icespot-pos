@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+
+enum Role {
+  ADMIN
+  STAFF
+}
+
+enum PaymentMode {
+  CASH
+  UPI
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String?
+  email        String   @unique
+  passwordHash String   @map("passwordHash")
+  role         String?
+  createdAt    DateTime @default(now())
+
+  sales        Sale[]   @relation("StaffSales")
+}
+
+
+model Item {
+  id            Int     @id @default(autoincrement())
+  name          String
+  category      String?
+  price         Int
+  stock         Int?
+  lowStockLevel Int?
+  isActive      Boolean @default(true)
+
+  saleItems     SaleItem[]
+}
+
+
+
+model Sale {
+  id          String   @id @default(uuid())
+  billNumber  String
+  totalAmount Int
+  paymentMode String
+  total       Int?
+  staffId     String?
+  createdAt   DateTime @default(now())
+
+  staff       User?    @relation("StaffSales", fields: [staffId], references: [id])
+
+  items       SaleItem[]
+}
+
+
+model SaleItem {
+  id        String @id @default(uuid())
+
+  saleId    String?
+  itemId    Int
+
+  qty       Int     @map("quantity")   // ⭐ map to DB column
+  price     Int
+
+  sale      Sale? @relation(fields: [saleId], references: [id])
+  item      Item  @relation(fields: [itemId], references: [id])
+}
