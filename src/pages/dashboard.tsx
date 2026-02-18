@@ -169,7 +169,6 @@ const printReceipt = (mode:string) => {
   </div>
 </div>
 
-    </div>
 
     {/* MAIN POS AREA */}
     <div style={{ display:"flex", flex:1 }}>
