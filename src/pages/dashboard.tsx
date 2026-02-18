@@ -140,23 +140,35 @@ const printReceipt = (mode:string) => {
   <div style={{ height:"100vh", display:"flex", flexDirection:"column" }}>
 
     {/* 🔝 POS HEADER */}
-    <div style={{
-      display:"flex",
-      alignItems:"center",
-      gap:15,
-      padding:"12px 20px",
-      background:"#111",
-      color:"#fff"
-    }}>
-      <img src="/logo.png" width={50} />
-      <div>
-        <div style={{fontSize:22, fontWeight:"bold"}}>
-          ICE SPOT
-        </div>
-        <div style={{fontSize:13, opacity:0.8}}>
-          Kurishumood, Changanacherry
-        </div>
-      </div>
+  {/* 🔝 POS HEADER (CENTERED) */}
+<div style={{
+  display:"flex",
+  flexDirection:"column",
+  alignItems:"center",
+  justifyContent:"center",
+  padding:"14px 0",
+  background:"#111",
+  color:"#fff"
+}}>
+  <img src="/logo.png" width={60} />
+
+  <div style={{
+    fontSize:24,
+    fontWeight:"bold",
+    marginTop:6,
+    letterSpacing:1
+  }}>
+    ICE SPOT
+  </div>
+
+  <div style={{
+    fontSize:14,
+    opacity:0.85
+  }}>
+    Kurishumood, Changanacherry
+  </div>
+</div>
+
     </div>
 
     {/* MAIN POS AREA */}
