@@ -1,0 +1,63 @@
+Folder PATH listing for volume Acer
+Volume serial number is E8C5-710F
+C:\USERS\TOSIB\DOWNLOADS\BILLING-MAIN\BILLING-MAIN
+|   .env
+|   .gitignore
+|   .gitkeep
+|   backup.zip
+|   next-env.d.ts
+|   next.config.js
+|   package-lock.json
+|   package.json
+|   prisma.config.ts
+|   README.md
+|   structure.txt
+|   structure2.txt
+|   tsconfig.json
+|   
++---app
+|   +---(dashboard)
+|   |   |   layout.tsx
+|   |   |   
+|   |   +---admin
+|   |   |   |   page.tsx
+|   |   |   |   
+|   |   |   +---categories
+|   |   |   |   \---new
+|   |   |   +---products
+|   |   |   |   \---new
+|   |   |   \---purchases
+|   |   |       |   page.tsx
+|   |   |       |   
+|   |   |       \---upload
+|   |   |               page.tsx
+|   |   |               
+|   |   +---staff
+|   |   \---superadmin
+|   +---api
+|   |   +---categories
+|   |   |   \---new
+|   |   +---dashboard
+|   |   |   |   route.ts
+|   |   |   |   
+|   |   |   \---admin
+|   |   |           route.ts
+|   |   |           
+|   |   +---products
+|   |   |   \---new
+|   |   \---purchases
+|   |       \---upload
+|   \---superadmin
+|           page.tsx
+|           
++---prisma
+|       schema.prisma
+|       seed.js
+|       
++---public
+|       logo.png
+|       
+\---src
+    \---lib
+            prisma.ts
+            

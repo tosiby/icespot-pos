@@ -1,0 +1,98 @@
+Folder PATH listing for volume Acer
+Volume serial number is E8C5-710F
+C:\USERS\TOSIB\DOWNLOADS\BILLING-MAIN\BILLING-MAIN
+|   .env
+|   .gitignore
+|   .gitkeep
+|   next-env.d.ts
+|   next.config.js
+|   package-lock.json
+|   package.json
+|   prisma.config.ts
+|   README.md
+|   structure.txt
+|   tsconfig.json
+|   
++---app
+|   +---(dashboard)
+|   |   +---admin
+|   |   |   +---categories
+|   |   |   |   \---new
+|   |   |   +---products
+|   |   |   |   \---new
+|   |   |   \---purchases
+|   |   |       \---upload
+|   |   +---staff
+|   |   \---superadmin
+|   +---admin
+|   |   |   page.tsx
+|   |   |   
+|   |   +---api
+|   |   |   \---purchases
+|   |   |       \---upload
+|   |   |               route.ts
+|   |   |               
+|   |   \---purchases
+|   |       |   page.tsx
+|   |       |   
+|   |       \---upload
+|   |               page.tsx
+|   |               
+|   +---api
+|   |   +---categories
+|   |   |   |   page.tsx
+|   |   |   |   
+|   |   |   \---new
+|   |   |           page.tsx
+|   |   |           
+|   |   +---dashboard
+|   |   |   |   route.ts
+|   |   |   |   
+|   |   |   \---admin
+|   |   |           route.ts
+|   |   |           
+|   |   +---products
+|   |   |   |   page.tsx
+|   |   |   |   
+|   |   |   \---new
+|   |   |           page.tsx
+|   |   |           
+|   |   \---purchases
+|   |       \---upload
+|   \---superadmin
+|           page.tsx
+|           
++---prisma
+|       schema.prisma
+|       seed.js
+|       
++---public
+|       logo.png
+|       
+\---src
+    +---lib
+    |   |   prisma.ts
+    |   |   
+    |   \---src
+    |           prisma.ts
+    |           
+    \---pages
+        |   admin.tsx
+        |   dashboard.tsx
+        |   index.tsx
+        |   login.tsx
+        |   report.tsx
+        |   stock.tsx
+        |   superadmin.tsx
+        |   
+        \---api
+                add-stock.ts
+                create-sale.ts
+                dashboard.tsx
+                hash.ts
+                items.ts
+                login.ts
+                low-stock.ts
+                prediction.ts
+                sales-today.ts
+                
