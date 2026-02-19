@@ -26,6 +26,10 @@ export default async function DashboardLayout({
             <Link href="/admin/categories">Categories</Link>
             <Link href="/admin/products">Products</Link>
             <Link href="/admin/purchases">Purchases</Link>
+<Link href="/admin/stock-entry">Stock Entry</Link>
+<Link href="/admin/stock-history">Stock History</Link>
+<Link href="/admin/low-stock">Low Stock</Link>
+
           </>
         )}
 
@@ -34,9 +38,22 @@ export default async function DashboardLayout({
         )}
       </aside>
 
-      <main className="flex-1 bg-gray-100">
-        {children}
-      </main>
+<main className="flex-1 bg-gray-100">
+  <div className="bg-white shadow p-4 flex justify-between">
+    <div>
+      <p className="font-semibold">Welcome, {user.name}</p>
+      <p className="text-sm text-gray-500">{user.role}</p>
     </div>
+
+    <form action="/api/logout" method="post">
+      <button className="bg-red-500 text-white px-3 py-1 rounded">
+        Logout
+      </button>
+    </form>
+  </div>
+
+  {children}
+</main>
+
   )
 }

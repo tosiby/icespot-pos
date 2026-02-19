@@ -33,14 +33,16 @@ model User {
 model Item {
   id            Int     @id @default(autoincrement())
   name          String
-  category      String?
-  price         Int
-  stock         Int?
-  lowStockLevel Int?
-  isActive      Boolean @default(true)
+  category      String
+  price         Float
+  stock         Int
+  lowStockLevel Int
+  isActive      Boolean
+saleItems SaleItem[]
 
-  saleItems     SaleItem[]
+  stockEntries  StockEntry[]   // 👈 ADD THIS LINE
 }
+
 
 
 
@@ -100,9 +102,12 @@ model StockLedger {
 }
 
 model StockEntry {
-  id        String   @id @default(uuid())
+  id        String   @id @default(cuid())
   itemId    Int
   quantity  Int
   note      String?
   createdAt DateTime @default(now())
+
+  item Item @relation(fields: [itemId], references: [id])
 }
+
