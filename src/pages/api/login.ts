@@ -41,9 +41,10 @@ export default async function handler(
 
   console.log("✅ LOGIN SUCCESS")
 
-  return res.status(200).json({
-    id: user.id,
-    email: user.email,
-    role: user.role,
-  })
+  localStorage.setItem("user", JSON.stringify(data))
+
+if(data.role === "STAFF") router.push("/dashboard")
+else if(data.role === "ADMIN") router.push("/admin")
+else if(data.role === "SUPERADMIN") router.push("/superadmin")
+
 }

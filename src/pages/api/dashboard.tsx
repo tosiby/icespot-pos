@@ -10,6 +10,7 @@ type Item = {
 }
 
 type CartItem = Item & { qty:number }
+console.log("🔥 NEW PRINT RECEIPT ACTIVE")
 
 export default function Dashboard() {
   const router = useRouter()
@@ -49,46 +50,80 @@ export default function Dashboard() {
   const categories = [...new Set(items.map(i=>i.category))]
   const filtered = items.filter(i=> i.category===category && i.isActive)
 
-  // RECEIPT 🧾
-  const printReceipt = (mode:string) => {
-    const now = new Date()
-    const date = now.toLocaleString()
-    const txn = "TXN" + Date.now()
+ // RECEIPT 🧾 (UPDATED FINAL)
+const printReceipt = (mode:string) => {
+  const now = new Date()
+  const date = now.toLocaleString()
+  const txn = "TXN" + Date.now()
 
-    const win = window.open("", "PRINT", "width=300,height=650")
+  // 👉 put your logo inside /public/logo.png later
+  const logo = "/logo.png"
 
-    win!.document.write(`
-      <html>
-      <body style="font-family:monospace;padding:10px">
-        <center>
-          <h3>ICE SPOT</h3>
-          Kurishumood, Changanacherry<br/>
-          GSTIN: 32XXXXXXXXXXXX
-        </center>
-        <hr/>
-        Date: ${date}<br/>
-        Bill No: ${txn}<br/>
-        Payment: ${mode}
-        <hr/>
+  const html = `
+  <html>
+  <head>
+    <title>Receipt</title>
+    <style>
+      @page { margin:0 }        /* removes about:blank footer */
+      body{
+        font-family: monospace;
+        width:260px;
+        padding:10px;
+      }
+      hr{ border-top:1px dashed #000; margin:6px 0 }
+      .row{
+        display:flex;
+        justify-content:space-between;
+        font-size:14px;
+      }
+    </style>
+  </head>
 
-        ${cart.map(i=>`
-          <div style="display:flex;justify-content:space-between">
-            <span>${i.name} x${i.qty}</span>
-            <span>₹${i.price*i.qty}</span>
-          </div>
-        `).join("")}
+  <body>
 
-        <hr/>
-        <h3>Total: ₹${total}</h3>
-        <hr/>
-        <center>Thank You ❤️<br/>Visit Again</center>
-      </body>
-      </html>
-    `)
+    <center>
+      <img src="${logo}" width="70"/><br/>
+      <b>ICE SPOT</b><br/>
+      Kurishumood, Changanacherry
+    </center>
 
-    win!.document.close()
+    <hr/>
+    Date: ${date}<br/>
+    Bill No: ${txn}<br/>
+    Payment: ${mode}
+    <hr/>
+
+    ${cart.map(i=>`
+      <div class="row">
+        <span>${i.name} x${i.qty}</span>
+        <span>₹${i.price*i.qty}</span>
+      </div>
+    `).join("")}
+
+    <hr/>
+    <h3>Total: ₹${total}</h3>
+    <hr/>
+
+    <center>
+      Thank You ❤️<br/>
+      Visit Again
+    </center>
+
+  </body>
+  </html>
+  `
+
+  const win = window.open("", "_blank", "width=300,height=650")
+  win!.document.write(html)
+  win!.document.close()
+  win!.focus()
+
+  setTimeout(()=>{
     win!.print()
-  }
+    win!.close()
+  },500)
+}
+
 
   // 💰 PAYMENT (FINAL FIX ADDED)
   const pay = async (mode:string) => {
